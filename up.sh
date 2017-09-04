@@ -24,7 +24,7 @@ brew analytics off
 brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
   docker vagrant-manager sublime-text santa djview mullvad xquartz gimp \
   inkscape anki java eclipse-jee intellij-idea libreoffice boxer mysqlworkbench \
-  torbrowser insomnia veracrypt osxfuse
+  torbrowser insomnia veracrypt osxfuse wireshark
 
 # maybe useful cyberduck sweet-home3d
 
