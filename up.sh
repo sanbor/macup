@@ -32,6 +32,23 @@ brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
 # gotchas: gpg-agent is required to avoid issues with pass
 brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg youtube-dl zsh zsh-completions \
   autojump tmux emacs pandoc node mtr p7zip aria2 python ipython plantuml ext4fuse
+  
+# MAC spoofing app
+brew install spoof-mac
+
+# Get the list of devices
+# spoof-mac list
+# Try to see if it works
+# sudo spoof-mac randomize en0 en1
+
+# randomize WiFi (en0) MAC address at start up time
+sudo brew services start spoof-mac
+
+# You may want to edit the plist file from
+#    <string>en0</string>
+# to e.g.:
+#    <string>en0 en1</string>
+# sudo vim /Library/LaunchDaemons/homebrew.mxcl.spoof-mac.plist
 
 # optionals
 # brew install yarn nginx
