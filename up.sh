@@ -31,7 +31,7 @@ brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
 # Install git, syncthing, pass, etc.
 # gotchas: gpg-agent is required to avoid issues with pass
 brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg youtube-dl zsh zsh-completions \
-  autojump tmux emacs pandoc node mtr p7zip aria2 python ipython plantuml ext4fuse
+  autojump tmux emacs pandoc node mtr p7zip aria2 python ipython plantuml ext4fuse tunnelblick cryptomator
   
 # MAC spoofing app
 brew install spoof-mac
