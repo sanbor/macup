@@ -2,6 +2,9 @@
 
 # Basic macOS bootstrap
 
+# WARNING: This script has never been run for real. I just use it to avoid work in the future.
+# When I start running this script for real I'll remove this legend.
+
 # Exit when some command fails (more info http://www.davidpashley.com/articles/writing-robust-shell-scripts/#id2382181)
 set -e
 
@@ -87,6 +90,8 @@ cp ~/dot.ssh_config ~/.ssh/config
 ssh-add -K ~/.ssh/id_rsa
 
 # Setup git
+cp ~/.gitconfig ~/.gitconfig.bak || true # Try to backup just in case
+cp ./dot.gitconfig ~/.gitconfig
 cp ~/.gitignore ~/.gitignore.bak || true # Try to backup just in case
 cp ./dot.gitignore ~/.gitignore
 git config --global user.name "$name"
