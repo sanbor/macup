@@ -71,6 +71,10 @@ npm install --global ijavascript gulp-cli create-react-app lite-server
 pip3 install --upgrade pip
 pip3 install jupyter jupyter_contrib_nbextensions pandas
 
+# Setup vim
+cp ~/.vimrc ~/.vimrc.bak || true # Try to backup just in case
+cp ./dot.vimrc ~/.vimrc
+
 # Setup zsh (more info https://wiki.archlinux.org/index.php/zsh)
 cp ~/.zshrc ~/.zshrc.bak || true # Try to backup just in case
 cp ./dot.zshrc ~/.zshrc
