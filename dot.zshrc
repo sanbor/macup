@@ -10,6 +10,9 @@ zstyle :compinstall filename '/Users/user/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Remove command lines from the history list when the first character on the line is a space
+setopt HIST_IGNORE_SPACE
 PROMPT='[%n@%m %~]$ '
 
 # Make time look like bash instead of the zsh version

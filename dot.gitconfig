@@ -1,0 +1,15 @@
+[core]
+	whitespace = trailing-space,space-before-tab
+	editor = /usr/bin/vim
+	excludesfile = /Users/user/.gitignore
+[alias]
+	week = !git log --author=\"`git config user.name`\" --before={`date \"+%Y-%m-%d\"`} --after={`date -v-1w \"+%Y-%m-%d\"`} --reverse --pretty=format:\"%cd  %h  %s\" --date=short
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	hard = !git reset --hard origin master
+	la = "!git config -l | grep alias | cut -c 7-"
+[push]
+	default = current
