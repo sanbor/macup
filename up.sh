@@ -28,7 +28,7 @@ brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
   docker vagrant-manager sublime-text santa djview mullvad xquartz gimp \
   inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
   mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
-  caffeine
+  caffeine lulu
 
 # maybe useful cyberduck sweet-home3d
 
