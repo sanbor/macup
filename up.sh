@@ -48,6 +48,9 @@ brew install spoof-mac
 # randomize WiFi (en0) MAC address at start up time
 sudo brew services start spoof-mac
 
+# To have launchd start syncthing now and restart at login
+brew services start syncthing
+
 # You may want to edit the plist file from
 #    <string>en0</string>
 # to e.g.:

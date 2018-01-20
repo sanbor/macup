@@ -4,8 +4,22 @@ set nocompatible
 " Use secure encryption by default
 set cryptmethod=blowfish2
 
-" Turn on syntax highlighting
+" Turn on syntax highlighting and plugins (for netrw
 syntax on
+filetype plugin on
+
+" riot tags as html
+au BufReadPost *.tag set syntax=html
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+set wildignore+=**/node_modules/**
+set wildignore+=**/.git/**
+set wildignore+=**/target/**
+
+" Display all matching files when we tab complete
+set wildmenu
 
 " Security
 set modelines=0
