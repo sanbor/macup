@@ -11,6 +11,16 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# compinit will not automatically find new executables in the $PATH. For example, after you install something.
+# make rehash to happen automatically
+zstyle ':completion:*' rehash true
+
+# Don't wait until the session is closed to write the history
+setopt share_history
+
+# Let's you do 5*7 without quoting, otherwise if the file glob doesn't expand to a file throws an error
+unsetopt nomatch
+
 # Remove command lines from the history list when the first character on the line is a space
 setopt HIST_IGNORE_SPACE
 PROMPT='[%n@%m %~]$ '
