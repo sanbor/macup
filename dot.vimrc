@@ -41,4 +41,5 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
-
+" Don't request to save buffer when going to the next one
+set hidden
