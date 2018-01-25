@@ -23,7 +23,8 @@ unsetopt nomatch
 
 # Remove command lines from the history list when the first character on the line is a space
 setopt HIST_IGNORE_SPACE
-PROMPT='[%n@%m %~]$ '
+
+# PROMPT='[%n@%m %~]$ '
 
 # Make time look like bash instead of the zsh version
 disable -r time       # disable shell reserved word
@@ -49,6 +50,17 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/19.1.0:$PATH
 
+# Use vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # alias
 alias ll='gls --color -lh'
 alias la='ll -art'
+alias d="docker-compose"
+
+# Show current branch in current submodule
+setopt prompt_subst
+source $(brew --prefix)/etc/bash_completion.d/git-prompt
+export RPROMPT=$'$(__git_ps1 "%s")'
+
