@@ -43,3 +43,5 @@ set shiftwidth=4
 set expandtab
 " Don't request to save buffer when going to the next one
 set hidden
+" Delete freedom in insert mode
+set backspace=2
