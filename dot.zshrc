@@ -42,3 +42,6 @@ export PATH=$ANDROID_HOME/build-tools/19.1.0:$PATH
 # alias
 alias ll='gls --color -lh'
 alias la='ll -art'
+
+export HOMEBREW_NO_GITHUB_API=1
+
