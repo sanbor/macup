@@ -25,10 +25,10 @@ brew analytics off
 
 # Install Google Chrome, Firefox, iTerm2, java, etc.
 brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
-  virtualbox-extension-pack docker sublime-text santa djview mullvad xquartz \
+  virtualbox-extension-pack docker sublime-text santa djview mullvadvpn \
   gimp inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
   mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
-  keepingyouawake knockknock blockblock oversight little-snitch
+  keepingyouawake knockknock blockblock oversight little-snitcha cryptomator
 
 # Install Guest Additions
 vagrant plugin install vagrant-vbguest
@@ -37,8 +37,9 @@ vagrant plugin install vagrant-vbguest
 
 # Install git, syncthing, pass, etc.
 # gotchas: gpg-agent is required to avoid issues with pass
-brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg youtube-dl zsh zsh-completions \
-  autojump tmux emacs pandoc node mtr p7zip aria2 python ipython plantuml ext4fuse tunnelblick cryptomator
+brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg \
+    youtube-dl zsh zsh-completions autojump tmux emacs pandoc node mtr p7zip \
+    aria2 python ipython plantuml ext4fuse tunnelblick htop
   
 # MAC spoofing app
 brew install spoof-mac
