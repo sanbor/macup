@@ -11,9 +11,20 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# compinit will not automatically find new executables in the $PATH. For example, after you install something.
+# make rehash to happen automatically
+zstyle ':completion:*' rehash true
+
+# Don't wait until the session is closed to write the history
+setopt share_history
+
+# Let's you do 5*7 without quoting, otherwise if the file glob doesn't expand to a file throws an error
+unsetopt nomatch
+
 # Remove command lines from the history list when the first character on the line is a space
 setopt HIST_IGNORE_SPACE
-PROMPT='[%n@%m %~]$ '
+
+# PROMPT='[%n@%m %~]$ '
 
 # Make time look like bash instead of the zsh version
 disable -r time       # disable shell reserved word
@@ -39,9 +50,18 @@ export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/19.1.0:$PATH
 
-# alias
-alias ll='gls --color -lh'
-alias la='ll -art'
+# Use vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 export HOMEBREW_NO_GITHUB_API=1
 
+# alias
+alias ll='gls --color -lh'
+alias la='ll -art'
+alias d="docker-compose"
+
+# Show current branch in current submodule
+setopt prompt_subst
+source $(brew --prefix)/etc/bash_completion.d/git-prompt
+export RPROMPT=$'$(__git_ps1 "%s")'
