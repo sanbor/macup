@@ -25,10 +25,13 @@ brew analytics off
 
 # Install Google Chrome, Firefox, iTerm2, java, etc.
 brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
-  docker vagrant-manager sublime-text santa djview mullvad xquartz gimp \
-  inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
+  virtualbox-extension-pack docker sublime-text santa djview mullvad xquartz \
+  gimp inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
   mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
-  caffeine lulu
+  keepingyouawake knockknock blockblock oversight little-snitch
+
+# Install Guest Additions
+vagrant plugin install vagrant-vbguest
 
 # maybe useful cyberduck sweet-home3d
 
