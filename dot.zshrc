@@ -49,6 +49,8 @@ export PATH=$GRADLE_HOME/bin:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/19.1.0:$PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Use vim
 export VISUAL=vim
@@ -57,8 +59,8 @@ export EDITOR="$VISUAL"
 export HOMEBREW_NO_GITHUB_API=1
 
 # alias
-alias ll='gls --color -lh'
-alias la='ll -art'
+alias ll="ls --color -lh"
+alias ls="ls --color"
 alias d="docker-compose"
 
 # Show current branch in current submodule
