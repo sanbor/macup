@@ -24,7 +24,7 @@ sudo scutil –-set HostName host
 brew analytics off
 
 # Install Google Chrome, Firefox, iTerm2, java, etc.
-brew cask install google-chrome firefox iterm2 vlc atom virtualbox vagrant \
+brew cask install google-chrome firefox iterm2 vlc sublime-text visual-studio-code virtualbox vagrant \
   virtualbox-extension-pack docker sublime-text santa djview mullvadvpn \
   gimp inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
   mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
@@ -63,16 +63,12 @@ brew services start syncthing
 
 # optionals
 # brew install yarn nginx
-# brew cask install visual-studio-code google-drive
 
 # Install GNU utilities (they are more updated than the ones shipped with macOS)
 # Guide to avoid appending the g in some commands https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 brew install coreutils binutils diffutils ed findutils gawk gnu-indent gnu-sed \
   gnu-tar gnu-which gnutls grep gzip screen watch wdiff wget bash gdb gpatch \
   m4 make nano file-formula git less openssh rsync svn unzip vim
-
-# Atom packages
-apm install plantuml-viewer hydrogen
 
 # Npm packages
 npm install --global ijavascript gulp-cli create-react-app lite-server
@@ -118,3 +114,11 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 # Setup android development, from https://gist.github.com/patrickhammond/4ddbe49a67e5eb1b9c03
 brew install ant maven gradle
 brew cask install brew cask install android-studio
+
+code --install-extension ms-vscode.atom-keybindings
+code --install-extension ms-vscode.Go
+code --install-extension redhat.java
+code --install-extension vscjava.vscode-java-debug
+code --install-extension vscjava.vscode-java-pack
+code --install-extension vscjava.vscode-java-test
+code --install-extension vscjava.vscode-maven
