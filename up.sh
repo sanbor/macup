@@ -25,19 +25,18 @@ brew analytics off
 
 # Install Google Chrome, Firefox, iTerm2, java, etc.
 brew cask install google-chrome firefox iterm2 vlc sublime-text visual-studio-code virtualbox vagrant \
-  virtualbox-extension-pack docker sublime-text santa djview mullvadvpn \
-  gimp inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
-  mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
-  keepingyouawake knockknock blockblock oversight little-snitcha cryptomator
+  virtualbox-extension-pack docker santa djview mullvadvpn \
+  gimp inkscape anki java intellij-idea libreoffice boxer \
+  torbrowser osxfuse wireshark knockknock blockblock oversight little-snitch
 
 # Install Guest Additions
 vagrant plugin install vagrant-vbguest
 
-# maybe useful cyberduck sweet-home3d
+# maybe useful cyberduck sweet-home3d veracrypt cryptomator mysqlworkbench
 
 # Install git, syncthing, pass, etc.
 # gotchas: gpg-agent is required to avoid issues with pass
-brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg \
+brew install git gpg gpg-agent mc ranger mplayer ffmpeg \
     youtube-dl zsh zsh-completions autojump tmux emacs pandoc node mtr p7zip \
     aria2 python ipython plantuml ext4fuse tunnelblick htop
   
@@ -47,13 +46,10 @@ brew install spoof-mac
 # Get the list of devices
 # spoof-mac list
 # Try to see if it works
-# sudo spoof-mac randomize en0 en1
+# sudo spoof-mac randomize en0
 
 # randomize WiFi (en0) MAC address at start up time
-sudo brew services start spoof-mac
-
-# To have launchd start syncthing now and restart at login
-brew services start syncthing
+# sudo brew services start spoof-mac
 
 # You may want to edit the plist file from
 #    <string>en0</string>
@@ -71,7 +67,7 @@ brew install coreutils binutils diffutils ed findutils gawk gnu-indent gnu-sed \
   m4 make nano file-formula git less openssh rsync svn unzip vim
 
 # Npm packages
-npm install --global ijavascript gulp-cli create-react-app lite-server
+# npm install --global ijavascript gulp-cli create-react-app lite-server
 
 # Python packages
 pip3 install --upgrade pip
@@ -112,13 +108,8 @@ defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool 
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
 # Setup android development, from https://gist.github.com/patrickhammond/4ddbe49a67e5eb1b9c03
-brew install ant maven gradle
-brew cask install brew cask install android-studio
+brew install maven gradle
+# brew cask install brew cask install android-studio
 
-code --install-extension ms-vscode.atom-keybindings
-code --install-extension ms-vscode.Go
-code --install-extension redhat.java
-code --install-extension vscjava.vscode-java-debug
-code --install-extension vscjava.vscode-java-pack
-code --install-extension vscjava.vscode-java-test
-code --install-extension vscjava.vscode-maven
+# code --install-extension ms-vscode.atom-keybindings
+# code --install-extension ms-vscode.Go
