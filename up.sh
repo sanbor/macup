@@ -35,8 +35,6 @@ brew cask install google-chrome firefox iterm2 vlc vscodium virtualbox vagrant \
 # Install Guest Additions
 vagrant plugin install vagrant-vbguest
 
-# maybe useful cyberduck sweet-home3d veracrypt
-
 # Install git, syncthing, pass, etc.
 # gotchas: gpg-agent is required to avoid issues with pass
 brew install git gnupg mc ranger mplayer mpv ffmpeg \
@@ -44,8 +42,27 @@ brew install git gnupg mc ranger mplayer mpv ffmpeg \
     aria2 python ipython jupyter plantuml ext4fuse htop maven gradle \
     wireguard-tools bash-completion fish httpie
 
-# To have launchd start syncthing now and restart at login
-# brew services start syncthing
+# maybe useful cyberduck sweet-home3d veracrypt cryptomator mysqlworkbench
+
+# MAC spoofing app
+brew install spoof-mac
+
+# Get the list of devices
+# spoof-mac list
+# Try to see if it works
+# sudo spoof-mac randomize en0
+
+# randomize WiFi (en0) MAC address at start up time
+# sudo brew services start spoof-mac
+
+# You may want to edit the plist file from
+#    <string>en0</string>
+# to e.g.:
+#    <string>en0 en1</string>
+# sudo vim /Library/LaunchDaemons/homebrew.mxcl.spoof-mac.plist
+
+# optionals
+# brew install yarn nginx
 
 # Install GNU utilities (they are more updated than the ones shipped with macOS)
 # Guide to avoid appending the g in some commands https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
@@ -53,10 +70,13 @@ brew install coreutils binutils diffutils ed findutils gawk gnu-indent gnu-sed \
   gnu-tar gnu-which gnutls grep gzip screen watch wdiff wget bash gdb gpatch \
   m4 make nano file-formula git less openssh ssh-copy-id rsync svn unzip vim imagemagick --with-webp
 
+
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 # brew install aircrack-ng bfg binutils binwalk cifer dex2jar dns2tcp fcrackzip foremost hashpump \
 #  hydra john knock netpbm nmap pngcheck socat sqlmap tcpflow tcpreplay \
 #  tcptrace ucspi-tcp xpdf xz
+# Npm packages
+# npm install --global ijavascript gulp-cli create-react-app lite-server
 
 # Npm packages
 # npm install --global ijavascript gulp-cli create-react-app lite-server
