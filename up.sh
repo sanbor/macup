@@ -24,70 +24,56 @@ sudo scutil –-set HostName host
 brew analytics off
 
 # Install Google Chrome, Firefox, iTerm2, java, etc.
-brew cask install google-chrome firefox iterm2 vlc sublime-text visual-studio-code virtualbox vagrant \
-  virtualbox-extension-pack docker sublime-text santa djview mullvadvpn \
-  gimp inkscape anki java eclipse-jee intellij-idea libreoffice boxer \
-  mysqlworkbench torbrowser insomnia veracrypt osxfuse wireshark \
-  keepingyouawake knockknock blockblock oversight little-snitcha cryptomator
+brew cask install google-chrome firefox iterm2 vlc vscodium virtualbox vagrant \
+  virtualbox-extension-pack docker santa djview mullvadvpn \
+  gimp krita xquartz inkscape anki intellij-idea-ce libreoffice boxer \
+  mysqlworkbench tor-browser osxfuse wireshark keybase \
+  knockknock blockblock little-snitch micro-snitch cryptomator emacs \
+  miniconda caskroom/versions/java8 kap spotify android-file-transfer \
+  skype android-platform-tools alfred
 
 # Install Guest Additions
 vagrant plugin install vagrant-vbguest
 
-# maybe useful cyberduck sweet-home3d
+# maybe useful cyberduck sweet-home3d veracrypt
 
 # Install git, syncthing, pass, etc.
 # gotchas: gpg-agent is required to avoid issues with pass
-brew install git syncthing pass gpg gpg-agent mc ranger mplayer ffmpeg \
-    youtube-dl zsh zsh-completions autojump tmux emacs pandoc node mtr p7zip \
-    aria2 python ipython plantuml ext4fuse tunnelblick htop
-  
-# MAC spoofing app
-brew install spoof-mac
-
-# Get the list of devices
-# spoof-mac list
-# Try to see if it works
-# sudo spoof-mac randomize en0 en1
-
-# randomize WiFi (en0) MAC address at start up time
-sudo brew services start spoof-mac
+brew install git gnupg mc ranger mplayer mpv ffmpeg \
+    youtube-dl zsh zsh-completions autojump tmux pandoc node mtr p7zip \
+    aria2 python ipython jupyter plantuml ext4fuse htop maven gradle \
+    wireguard-tools bash-completion fish httpie
 
 # To have launchd start syncthing now and restart at login
-brew services start syncthing
-
-# You may want to edit the plist file from
-#    <string>en0</string>
-# to e.g.:
-#    <string>en0 en1</string>
-# sudo vim /Library/LaunchDaemons/homebrew.mxcl.spoof-mac.plist
-
-# optionals
-# brew install yarn nginx
+# brew services start syncthing
 
 # Install GNU utilities (they are more updated than the ones shipped with macOS)
 # Guide to avoid appending the g in some commands https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 brew install coreutils binutils diffutils ed findutils gawk gnu-indent gnu-sed \
   gnu-tar gnu-which gnutls grep gzip screen watch wdiff wget bash gdb gpatch \
-  m4 make nano file-formula git less openssh rsync svn unzip vim
+  m4 make nano file-formula git less openssh ssh-copy-id rsync svn unzip vim imagemagick --with-webp
+
+# Install some CTF tools; see https://github.com/ctfs/write-ups.
+# brew install aircrack-ng bfg binutils binwalk cifer dex2jar dns2tcp fcrackzip foremost hashpump \
+#  hydra john knock netpbm nmap pngcheck socat sqlmap tcpflow tcpreplay \
+#  tcptrace ucspi-tcp xpdf xz
 
 # Npm packages
-npm install --global ijavascript gulp-cli create-react-app lite-server
-
-# Python packages
-pip3 install --upgrade pip
-pip3 install jupyter jupyter_contrib_nbextensions pandas
+# npm install --global ijavascript gulp-cli create-react-app lite-server
 
 # Setup vim
 cp ~/.vimrc ~/.vimrc.bak || true # Try to backup just in case
 cp ./dot.vimrc ~/.vimrc
 
 # Setup zsh (more info https://wiki.archlinux.org/index.php/zsh)
-cp ~/.zshrc ~/.zshrc.bak || true # Try to backup just in case
-cp ./dot.zshrc ~/.zshrc
-echo "[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh">>~/.zshrc
-echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:$PATH\"">>~/.zshrc
-sudo echo "$(which zsh)" >> /etc/shells
-chsh -s $(which zsh)
+# cp ~/.zshrc ~/.zshrc.bak || true # Try to backup just in case
+# cp ./dot.zshrc ~/.zshrc
+# echo "[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh">>~/.zshrc
+# echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:$PATH\"">>~/.zshrc
+
+# Fish rulez!
+sudo sh -c "echo $(which fish) >> /etc/shells"
+chsh -s "$(which fish)"
 
 # Create keys for the machine
 mkdir ~/.ssh || true
@@ -111,14 +97,27 @@ git config --list
 defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
-# Setup android development, from https://gist.github.com/patrickhammond/4ddbe49a67e5eb1b9c03
-brew install ant maven gradle
-brew cask install brew cask install android-studio
+# Add `auth sufficient pam_tid.so` to the top of /etc/pam.d/sudo file
+sudo bash -eu <<'EOF'
+  file=/etc/pam.d/sudo
+  # A backup file will be created with the pattern /etc/pam.d/.sudo.1
+  # (where 1 is the number of backups, so that rerunning this doesn't make you lose your original)
+  bak=$(dirname $file)/.$(basename $file).$(echo $(ls $(dirname $file)/{,.}$(basename $file)* | wc -l))
+  cp $file $bak
+  awk -v is_done='pam_tid' -v rule='auth       sufficient     pam_tid.so' '
+  {
+    # $1 is the first field
+    # !~ means "does not match pattern"
+    if($1 !~ /^#.*/){
+      line_number_not_counting_comments++
+    }
+    # $0 is the whole line
+    if(line_number_not_counting_comments==1 && $0 !~ is_done){
+      print rule
+    }
+    print
+  }' > $file < $bak
+EOF
 
-code --install-extension ms-vscode.atom-keybindings
-code --install-extension ms-vscode.Go
-code --install-extension redhat.java
-code --install-extension vscjava.vscode-java-debug
-code --install-extension vscjava.vscode-java-pack
-code --install-extension vscjava.vscode-java-test
-code --install-extension vscjava.vscode-maven
+# Set sudo grace period to 0
+echo 'Defaults timestamp_timeout=0' | sudo EDITOR='tee -a' visudo
