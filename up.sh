@@ -141,3 +141,37 @@ EOF
 
 # Set sudo grace period to 0
 echo 'Defaults timestamp_timeout=0' | sudo EDITOR='tee -a' visudo
+
+# To find available bundle ids: lsappinfo | grep 'bundleID="' | cut -d'"' -f2 | sort
+# To check current app associated to an extension: duti -x js
+# visual studio code bundle id is com.microsoft.VSCode
+# but I'm using VSCodium bundle id instead
+duti -s com.visualstudio.code.oss .xml all
+duti -s com.visualstudio.code.oss .json all
+duti -s com.visualstudio.code.oss .c all
+duti -s com.visualstudio.code.oss .cpp all
+duti -s com.visualstudio.code.oss .cs all
+duti -s com.visualstudio.code.oss .css all
+duti -s com.visualstudio.code.oss .go all
+duti -s com.visualstudio.code.oss .java all
+duti -s com.visualstudio.code.oss .js all
+duti -s com.visualstudio.code.oss .sass all
+duti -s com.visualstudio.code.oss .scss all
+duti -s com.visualstudio.code.oss .less all
+duti -s com.visualstudio.code.oss .vue all
+duti -s com.visualstudio.code.oss .cfg all
+duti -s com.visualstudio.code.oss .json all
+duti -s com.visualstudio.code.oss .jsx all
+duti -s com.visualstudio.code.oss .lua all
+duti -s com.visualstudio.code.oss .md all
+duti -s com.visualstudio.code.oss .php all
+duti -s com.visualstudio.code.oss .pl all
+duti -s com.visualstudio.code.oss .py all
+duti -s com.visualstudio.code.oss .rb all
+duti -s com.visualstudio.code.oss .rs all
+duti -s com.visualstudio.code.oss .sh all
+duti -s com.visualstudio.code.oss .swift all
+duti -s com.visualstudio.code.oss .txt all
+duti -s com.visualstudio.code.oss .conf all
+duti -s com.visualstudio.code.oss public.unix-executable all
+duti -s com.visualstudio.code.oss public.plain-text all
