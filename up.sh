@@ -40,7 +40,7 @@ vagrant plugin install vagrant-vbguest
 brew install git gnupg mc ranger mplayer mpv ffmpeg \
     youtube-dl zsh zsh-completions autojump tmux pandoc node mtr p7zip \
     aria2 python ipython jupyter plantuml ext4fuse htop maven gradle \
-    wireguard-tools bash-completion fish httpie
+    wireguard-tools bash-completion fish httpie jq duti topgrade tesseract-lang
 
 # maybe useful cyberduck sweet-home3d veracrypt cryptomator mysqlworkbench
 
